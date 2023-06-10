@@ -8,13 +8,11 @@ import {COLORS} from './src/Utils/Constants';
 const App = () => {
   const [netConnected, setNetConnected] = useState(undefined);
   useEffect(() => {
-    // Subscribe
     const unsubscribe = NetInfo.addEventListener(state => {
       setNetConnected(state.isInternetReachable);
     });
 
     return () => {
-      // Unsubscribe
       unsubscribe();
     };
   }, []);
